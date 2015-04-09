@@ -30,6 +30,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.LogRegActivity" />
+        <activity android:name=".activities.ElephantActivity" />
     </application>
 
 </manifest>

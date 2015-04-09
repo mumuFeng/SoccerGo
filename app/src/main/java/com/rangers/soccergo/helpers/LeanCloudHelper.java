@@ -4,7 +4,14 @@ import android.content.Context;
 
 import com.avos.avoscloud.AVOSCloud;
 import com.avos.avoscloud.AVObject;
+import com.rangers.soccergo.entities.Elephant;
+import com.rangers.soccergo.entities.Fruit;
+import com.rangers.soccergo.entities.JoinMatch;
+import com.rangers.soccergo.entities.JoinTeam;
+import com.rangers.soccergo.entities.Match;
+import com.rangers.soccergo.entities.School;
 import com.rangers.soccergo.entities.Team;
+import com.rangers.soccergo.entities.TeamMoment;
 
 /**
  * LeanCloudHelper
@@ -35,7 +42,15 @@ public class LeanCloudHelper {
      * 注册实体子类
      */
     private static void registerSubclass() {
+        AVObject.registerSubclass(JoinMatch.class);
+        AVObject.registerSubclass(JoinTeam.class);
+        AVObject.registerSubclass(School.class);
+        AVObject.registerSubclass(TeamMoment.class);
         AVObject.registerSubclass(Team.class);
+        AVObject.registerSubclass(Match.class);
+        //下面是测试用类
+        AVObject.registerSubclass(Elephant.class);
+        AVObject.registerSubclass(Fruit.class);
     }
 
 }
