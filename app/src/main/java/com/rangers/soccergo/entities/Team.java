@@ -1,6 +1,7 @@
 package com.rangers.soccergo.entities;
 
 import com.avos.avoscloud.AVClassName;
+import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVFile;
 import com.avos.avoscloud.AVRelation;
 import com.avos.avoscloud.FindCallback;
@@ -25,6 +26,7 @@ public class Team extends Base {
     public static final String HOST_KEY = "host"; //球队主场
     public static final String CAPTAIN_KEY = "captain"; //队长
     public static final String MEMBERS_KEY = "members"; //成员
+    public static final String OPPONENTS_KEY = "opponents"; // 关注对手列表
 
     public AVFile getLogo() {
         return this.getAVFile(LOGO_KEY);
@@ -80,6 +82,55 @@ public class Team extends Base {
     }
 
     /**
+     * 异步地获取竞争对手
+     * @param callback 回调接口
+     */
+    public void getOpponents(
+            final FindCallback<Team> callback) {
+        AVRelation<Team> relation =
+                this.getRelation(OPPONENTS_KEY);
+        relation.getQuery().findInBackground(callback);
+    }
+
+    /**
+     * 同步地获取竞争对手
+     *
+     * @return 竞争球队列表
+     */
+    public List<Team> getOpponents() {
+        AVRelation<Team> relation =
+                this.getRelation(OPPONENTS_KEY);
+        try {
+            return relation.getQuery().find();
+        } catch (AVException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 添加竞争对手
+     *
+     * @param opponent 待添加竞争对手
+     */
+    public void addOpponent(Team opponent) {
+        AVRelation<Team> relation =
+                this.getRelation(OPPONENTS_KEY);
+        relation.add(opponent);
+    }
+
+    /**
+     * 添加竞争对手列表
+     *
+     * @param opponents 待添加竞争对手列表
+     */
+    public void addOpponents(List<Team> opponents) {
+        AVRelation<Team> relation =
+                this.getRelation(OPPONENTS_KEY);
+        relation.addAll(opponents);
+    }
+
+    /**
      * 异步地得到球队所有成员
      *
      * @param callback 查询完成的回调接口
@@ -87,6 +138,21 @@ public class Team extends Base {
     public void getAllMembers(final FindCallback callback) {
         AVRelation<User> relation = this.getRelation(MEMBERS_KEY);
         relation.getQuery().findInBackground(callback);
+    }
+
+    /**
+     * 获得球队所有成员
+     *
+     * @return 球队成员列表
+     */
+    public List<User> getAllMembers() {
+        AVRelation<User> relation = this.getRelation(MEMBERS_KEY);
+        try {
+            return relation.getQuery().find();
+        } catch (AVException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 
@@ -119,5 +185,6 @@ public class Team extends Base {
         AVRelation<User> relation = this.getRelation(MEMBERS_KEY);
         relation.remove(member);
     }
+
 
 }

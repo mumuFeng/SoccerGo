@@ -48,4 +48,15 @@ dependencies {
 
     //avoscloud-search 为 LeanCloud 应用内搜索包
     compile 'cn.leancloud.android:avoscloud-search:v2.7+@aar'
+
+    //侧滑栏
+    compile project(':ThirdParty:SlidingMenu')
+
+    //picasso
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
+    //image loader
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
+
+
 }

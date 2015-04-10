@@ -33,7 +33,7 @@ import java.util.List;
 public class ElephantActivity extends BaseActivity {
     private ViewFlipper flipper;
     private EditText elephantNameEditor;
-    private EditText elephatWeightEditor;
+    private EditText elephantWeightEditor;
     private EditText fruitNameEditor;
     private TextView showNameTxt;
     private TextView showWeightTxt;
@@ -52,7 +52,7 @@ public class ElephantActivity extends BaseActivity {
         //初始化各组件
         flipper = (ViewFlipper) findViewById(R.id.flipper);
         elephantNameEditor = (EditText) findViewById(R.id.elephant_name);
-        elephatWeightEditor = (EditText) findViewById(R.id.elephant_weight);
+        elephantWeightEditor = (EditText) findViewById(R.id.elephant_weight);
         fruitNameEditor = (EditText) findViewById(R.id.fruit_name);
         showNameTxt = (TextView) findViewById(R.id.show_name);
         showWeightTxt = (TextView) findViewById(R.id.show_weight);
@@ -74,7 +74,7 @@ public class ElephantActivity extends BaseActivity {
                 String elephantName = elephantNameEditor.getText()
                         .toString();
                 Double elephantWeight = Double.valueOf(
-                        elephatWeightEditor.getText().toString());
+                        elephantWeightEditor.getText().toString());
                 /*
                 * 这里就是创建及保存数据对象的BLOCK,
                 * 下面我们创建一直小大象

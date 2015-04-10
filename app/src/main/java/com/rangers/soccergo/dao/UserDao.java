@@ -1,5 +1,7 @@
 package com.rangers.soccergo.dao;
 
+import com.rangers.soccergo.entities.User;
+
 /**
  * UserDao
  * Desc:用户Dao
@@ -9,4 +11,8 @@ package com.rangers.soccergo.dao;
  * Created by: Wooxxx
  */
 public class UserDao extends BaseDao {
+    @Override
+    public String getClassName() {
+        return User.CLASS_NAME;
+    }
 }

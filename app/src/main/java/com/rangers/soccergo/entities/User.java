@@ -12,6 +12,8 @@ import com.avos.avoscloud.AVUser;
  * Created by: Wooxxx
  */
 public class User extends AVUser {
+    //定义Class名称
+    public static final String CLASS_NAME = "_USER";
     // 定义所有Keys
     public static final String PREFERED_ROLE_KEY = "prefered_role"; //擅长位置
     public static final String NICKNAME_KEY = "nickname"; //昵称
@@ -20,6 +22,46 @@ public class User extends AVUser {
     public static final String HOST_KEY = "host"; //主场
     public static final String AVATAR_KEY = "avatar"; //头像
 
+    /**
+     * 擅长位置的枚举
+     */
+    public enum PreferedRole {
+        Forward(1, "前锋"),
+        Midfielder(2, "中场"),
+        Defender(3, "后卫"),
+        GoalKeeper(4, "门将");
+
+        private int index; // 该位置index
+        private String name; // 擅长位置名称
+
+        PreferedRole(int index, String name) {
+            this.name = name;
+            this.index = index;
+        }
+
+        /**
+         * 根据坐标返回擅长位置
+         *
+         * @param index 枚举坐标
+         * @return 擅长位置名称
+         */
+        public static PreferedRole getRole(int index) {
+            PreferedRole[] roles = PreferedRole.values();
+            for (PreferedRole role : roles) {
+                if (role.index == index)
+                    return role;
+            }
+            return null;
+        }
+
+        public int getIndex() {
+            return index;
+        }
+
+        public String getName() {
+            return name;
+        }
+    }
     //重写get，set方法
 
     public PreferedRole getPreferedRole() {
@@ -76,46 +118,5 @@ public class User extends AVUser {
         this.put(AVATAR_KEY, avatar);
     }
 
-
-    /**
-     * 擅长位置的枚举
-     */
-    public enum PreferedRole {
-        Forward(1, "前锋"),
-        Midfielder(2, "中场"),
-        Defender(3, "后卫"),
-        GoalKeeper(4, "门将");
-
-        private int index; // 该位置index
-        private String name; // 擅长位置名称
-
-        PreferedRole(int index, String name) {
-            this.name = name;
-            this.index = index;
-        }
-
-        /**
-         * 根据坐标返回擅长位置
-         *
-         * @param index 枚举坐标
-         * @return 擅长位置名称
-         */
-        public static PreferedRole getRole(int index) {
-            PreferedRole[] roles = PreferedRole.values();
-            for (PreferedRole role : roles) {
-                if (role.index == index)
-                    return role;
-            }
-            return null;
-        }
-
-        public int getIndex() {
-            return index;
-        }
-
-        public String getName() {
-            return name;
-        }
-    }
 
 }
