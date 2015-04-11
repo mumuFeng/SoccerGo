@@ -27,6 +27,7 @@ public class Team extends Base {
     public static final String CAPTAIN_KEY = "captain"; //队长
     public static final String MEMBERS_KEY = "members"; //成员
     public static final String OPPONENTS_KEY = "opponents"; // 关注对手列表
+    public static final String CREATOR_KEY = "creator"; // 创建者
 
     public AVFile getLogo() {
         return this.getAVFile(LOGO_KEY);
@@ -79,6 +80,14 @@ public class Team extends Base {
 
     public void setCaptain(User captain) {
         this.put(CAPTAIN_KEY, captain);
+    }
+
+    public User getCreator() {
+        return this.getAVUser(CREATOR_KEY);
+    }
+
+    public void setCreator(User creator) {
+        this.put(CREATOR_KEY, creator);
     }
 
     /**
