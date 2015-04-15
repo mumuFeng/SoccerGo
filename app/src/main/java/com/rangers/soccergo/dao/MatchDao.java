@@ -19,7 +19,7 @@ import java.util.List;
 public class MatchDao extends BaseDao {
 
     private static AVQuery<Match> query =
-            new AVQuery<Match>();
+            new AVQuery<Match>(Match.CLASS_NAME);
 
     @Override
     public String getClassName() {

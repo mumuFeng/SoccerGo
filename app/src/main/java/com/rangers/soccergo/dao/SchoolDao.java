@@ -19,7 +19,7 @@ import java.util.List;
 public class SchoolDao extends BaseDao {
 
     private static AVQuery<School> query =
-            new AVQuery<>();
+            new AVQuery<>(School.CLASS_NAME);
 
     @Override
     public String getClassName() {

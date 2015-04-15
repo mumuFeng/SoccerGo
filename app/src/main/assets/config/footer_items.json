@@ -1,0 +1,12 @@
+[
+  {
+    "name": "match",
+    "icon": "app_weixin",
+    "fragment": "com.rangers.soccergo.fragments.IndividualListFragment"
+  },
+  {
+    "name": "team",
+    "icon": "app_weibo",
+    "fragment": "com.rangers.soccergo.fragments.LoginFragment"
+  }
+]
