@@ -19,7 +19,7 @@ import java.util.List;
 public class TeamDao extends BaseDao {
 
     private static AVQuery<Team> query =
-            new AVQuery<Team>();
+            new AVQuery<Team>(Team.CLASS_NAME);
 
     @Override
     public String getClassName() {

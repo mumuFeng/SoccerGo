@@ -20,7 +20,7 @@ import java.util.List;
 public class JoinMatchDao extends BaseDao {
 
     private static AVQuery<JoinMatch> query =
-            new AVQuery<JoinMatch>();
+            new AVQuery<JoinMatch>(JoinMatch.CLASS_NAME);
 
     @Override
     public String getClassName() {

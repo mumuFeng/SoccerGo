@@ -23,6 +23,7 @@ import com.rangers.soccergo.entities.TeamMoment;
  */
 public class LeanCloudHelper {
 
+
     private static final String APP_ID = "z9d925kj7ws3ypepkr1cqa42h00iw22spmc8lik28w7cokx5";
     private static final String APP_KEY = "o6ltk67iv7cxqntxf6xpp91jgjj60qpgxl7qushxl1lxxst3";
 
@@ -51,6 +52,7 @@ public class LeanCloudHelper {
         //下面是测试用类
         AVObject.registerSubclass(Elephant.class);
         AVObject.registerSubclass(Fruit.class);
+
     }
 
 }

@@ -12,7 +12,7 @@ android {
     }
     defaultConfig {
         applicationId "com.rangers.soccergo"
-        minSdkVersion 17
+        minSdkVersion 14
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
@@ -57,6 +57,5 @@ dependencies {
 
     //image loader
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
-
 
 }

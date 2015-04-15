@@ -101,8 +101,8 @@
     <orderEntry type="library" exported="" name="android-async-http-1.4.6" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-21.0.3" level="project" />
     <orderEntry type="library" exported="" name="avoscloud-statistics-v2.7" level="project" />
-    <orderEntry type="library" exported="" name="avoscloud-sdk-v2.7" level="project" />
     <orderEntry type="library" exported="" name="Java-WebSocket-1.2.0-leancloud" level="project" />
+    <orderEntry type="library" exported="" name="avoscloud-sdk-v2.7" level="project" />
     <orderEntry type="library" exported="" name="avoscloud-sns-v2.7" level="project" />
     <orderEntry type="module" module-name="SlidingMenu" exported="" />
   </component>
