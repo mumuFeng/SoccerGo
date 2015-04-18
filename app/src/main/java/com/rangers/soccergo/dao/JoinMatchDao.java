@@ -19,8 +19,7 @@ import java.util.List;
  */
 public class JoinMatchDao extends BaseDao {
 
-    private static AVQuery<JoinMatch> query =
-            new AVQuery<JoinMatch>(JoinMatch.CLASS_NAME);
+    private static AVQuery<JoinMatch> query;
 
     @Override
     public String getClassName() {
@@ -35,6 +34,7 @@ public class JoinMatchDao extends BaseDao {
      */
     public static void findByUser(User user,
                                   final FindCallback<JoinMatch> callback) {
+        query = AVQuery.getQuery(JoinMatch.class);
         query.whereEqualTo(JoinMatch.USER_KEY, user.getObjectId());
         query.findInBackground(callback);
     }
@@ -46,6 +46,7 @@ public class JoinMatchDao extends BaseDao {
      * @return 参加比赛列表
      */
     public static List<JoinMatch> findByUser(User user) {
+        query = AVQuery.getQuery(JoinMatch.class);
         query.whereEqualTo(JoinMatch.USER_KEY, user.getObjectId());
         try {
             return query.find();
@@ -63,6 +64,7 @@ public class JoinMatchDao extends BaseDao {
      */
     public static void findByMatch(Match match,
                                    final FindCallback<JoinMatch> callback) {
+        query = AVQuery.getQuery(JoinMatch.class);
         query.whereEqualTo(JoinMatch.MATCH_KEY, match.getObjectId());
         query.findInBackground(callback);
     }
@@ -74,6 +76,7 @@ public class JoinMatchDao extends BaseDao {
      * @return 参加比赛列表
      */
     public static List<JoinMatch> findByMatch(Match match) {
+        query = AVQuery.getQuery(JoinMatch.class);
         query.whereEqualTo(JoinMatch.MATCH_KEY, match.getObjectId());
         try {
             return query.find();

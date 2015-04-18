@@ -18,6 +18,7 @@ import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.LogInCallback;
 import com.rangers.soccergo.R;
 import com.rangers.soccergo.activities.LogRegActivity;
+import com.rangers.soccergo.entities.User;
 
 /**
  * LoginFragment
@@ -135,10 +136,10 @@ public class LoginFragment extends BackHandleFragment {
         }
         //进行登录
         AVUser.logInInBackground(username, password,
-                new LogInCallback<AVUser>() {
+                new LogInCallback<User>() {
                     @Override
-                    public void done(AVUser avUser, AVException e) {
-                        if (avUser == null) {
+                    public void done(User user, AVException e) {
+                        if (user == null) {
                             //登录失败进行提示
                             usernameEditor.setError(rs.getString(R.string.login_error));
                             usernameEditor.requestFocus();
@@ -148,7 +149,7 @@ public class LoginFragment extends BackHandleFragment {
                             startActivity(intent);
                         }
                     }
-                });
+                }, User.class);
     }
 
     @Override

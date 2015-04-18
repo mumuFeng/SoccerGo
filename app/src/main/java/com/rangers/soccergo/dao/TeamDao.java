@@ -18,8 +18,7 @@ import java.util.List;
  */
 public class TeamDao extends BaseDao {
 
-    private static AVQuery<Team> query =
-            new AVQuery<Team>(Team.CLASS_NAME);
+    private static AVQuery<Team> query;
 
     @Override
     public String getClassName() {
@@ -34,6 +33,7 @@ public class TeamDao extends BaseDao {
      */
     public static void findBySchool(School school,
                                     final FindCallback<Team> callback) {
+        query = AVQuery.getQuery(Team.class);
         query.whereEqualTo(Team.HOST_KEY, school.getObjectId());
         query.findInBackground(callback);
     }
@@ -45,6 +45,7 @@ public class TeamDao extends BaseDao {
      * @return 球队列表
      */
     public static List<Team> findBySchool(School school) {
+        query = AVQuery.getQuery(Team.class);
         query.whereEqualTo(Team.HOST_KEY, school.getObjectId());
         try {
             return query.find();
