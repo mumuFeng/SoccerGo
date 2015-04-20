@@ -18,8 +18,7 @@ import java.util.List;
  */
 public class SchoolDao extends BaseDao {
 
-    private static AVQuery<School> query =
-            new AVQuery<>(School.CLASS_NAME);
+    private static AVQuery<School> query;
 
     @Override
     public String getClassName() {
@@ -34,6 +33,7 @@ public class SchoolDao extends BaseDao {
      */
     public static void findByProvince(int provinceIdx,
                                       final FindCallback<School> callback) {
+        query = AVQuery.getQuery(School.class);
         query.whereEqualTo(School.PROVINCE_KEY, provinceIdx);
         query.findInBackground(callback);
     }
@@ -45,6 +45,7 @@ public class SchoolDao extends BaseDao {
      * @return 学校列表
      */
     public static List<School> findByProvince(int provinceIdx) {
+        query = AVQuery.getQuery(School.class);
         query.whereEqualTo(School.PROVINCE_KEY, provinceIdx);
         try {
             return query.find();
@@ -62,6 +63,7 @@ public class SchoolDao extends BaseDao {
      */
     public static void findByCity(int cityIdx,
                                   final FindCallback<School> callback) {
+        query = AVQuery.getQuery(School.class);
         query.whereEqualTo(School.CITY_KEY, cityIdx);
         query.findInBackground(callback);
     }
@@ -73,6 +75,7 @@ public class SchoolDao extends BaseDao {
      * @return 学校列表
      */
     public static List<School> findByCity(int cityIdx) {
+        query = AVQuery.getQuery(School.class);
         query.whereEqualTo(School.CITY_KEY, cityIdx);
         try {
             return query.find();

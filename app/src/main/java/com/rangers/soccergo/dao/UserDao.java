@@ -17,7 +17,8 @@ import java.util.List;
  */
 public class UserDao extends BaseDao {
     private static AVQuery<User>
-            query = new AVQuery<>(User.CLASS_NAME);
+            query;
+
     @Override
     public String getClassName() {
         return User.CLASS_NAME;
@@ -31,6 +32,7 @@ public class UserDao extends BaseDao {
      */
     public static void findUserByUsername(String username,
                                           final FindCallback<User> callback) {
+        query = AVQuery.getQuery(User.class);
         query.whereEqualTo("username", username);
         query.findInBackground(callback);
     }
@@ -42,6 +44,7 @@ public class UserDao extends BaseDao {
      * @return callback 回调接口
      */
     public static List<User> findUserByUsername(String username) {
+        query = AVQuery.getQuery(User.class);
         query.whereEqualTo("username", username);
         try {
             return query.find();
