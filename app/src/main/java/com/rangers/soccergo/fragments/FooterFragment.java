@@ -32,25 +32,25 @@ public class FooterFragment extends BaseFragment {
     private FragmentManager fm;
     //底部栏高度
     private int height;
+    // 当前按下的底栏选项
+    private ImageView activedBtn = null;
+    private FooterItem activedItem = null;
 
     /**
      * 监听底部栏切换
      */
     class SwitchListener implements View.OnClickListener {
-        // 待跳转Fragment
-        private Fragment dst;
+        // 当前按下选项
+        private FooterItem footerItem;
 
-        SwitchListener(Fragment dst) {
-            this.dst = dst;
+        SwitchListener(FooterItem footerItem) {
+            this.footerItem = footerItem;
         }
 
 
         @Override
         public void onClick(View v) {
-            FragmentTransaction ft =
-                    fm.beginTransaction();
-            ft.replace(R.id.main_fragment, dst, Fragment.class.toString());
-            ft.commit();
+            swtiching((ImageView) v, footerItem);
         }
     }
 
@@ -92,8 +92,7 @@ public class FooterFragment extends BaseFragment {
         for (int i = 0; i < footerItems.size(); i++) {
             FooterItem item = footerItems.get(i);
             // 获得图标id
-            int id = getResources()
-                    .getIdentifier(item.getIcon(), "drawable", ctx.getPackageName());
+            int id = item.fetchIconId(ctx);
             //根据屏幕宽设置选项宽度
             int length = ctx.getResources().getDimensionPixelSize(R.dimen.footer_icon_size);
             LinearLayout layout = new LinearLayout(ctx);
@@ -119,23 +118,56 @@ public class FooterFragment extends BaseFragment {
             ));
             button.setImageResource(id);
             button.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            // 获得目标Fragment
-            Fragment dst = null;
-            try {
-                dst = (Fragment) Class.forName(item.getFragment())
-                        .newInstance();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            button.setOnClickListener(new SwitchListener(dst));
+            button.setOnClickListener(new SwitchListener(item));
+            if (i == 0)
+                button.performClick();
             layout.addView(button);
             footer.addView(layout);
         }
     }
 
 
+    /**
+     * 获得底栏高度，用以修正MainFragment
+     *
+     * @return 底栏高度
+     */
     public int getHeight() {
         return footer.getMeasuredHeight();
+    }
+
+    /**
+     * 切换按钮
+     *
+     * @param nowBtn  当前按下按钮
+     * @param nowItem 当前按下选项
+     */
+    public void swtiching(ImageView nowBtn, FooterItem nowItem) {
+        if (activedBtn != null) {
+            //取消上次按钮状态
+            activedBtn.setImageResource(
+                    activedItem.fetchIconId(getActivity())
+            );
+        }
+        // 更新按钮状态
+        activedBtn = nowBtn;
+        activedItem = nowItem;
+        activedBtn.setImageResource(
+                nowItem.fetchActivedIconId(getActivity())
+        );
+        //刷新fragment
+        // 获得目标Fragment
+        Fragment dst = nowItem.fetchFragment();
+        try {
+            dst = (Fragment) Class.forName(nowItem.getFragment())
+                    .newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.main_fragment, dst, Fragment.class.toString());
+        ft.commit();
     }
 
 }

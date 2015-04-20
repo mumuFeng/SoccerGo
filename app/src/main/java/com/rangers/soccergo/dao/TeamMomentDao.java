@@ -18,8 +18,7 @@ import java.util.List;
  */
 public class TeamMomentDao extends BaseDao {
 
-    private static AVQuery<TeamMoment> query
-            = new AVQuery<TeamMoment>(TeamMoment.CLASS_NAME);
+    private static AVQuery<TeamMoment> query;
 
     @Override
     public String getClassName() {
@@ -34,6 +33,7 @@ public class TeamMomentDao extends BaseDao {
      */
     public static void findByDate(Date date,
                                   final FindCallback<TeamMoment> callback) {
+        query = AVQuery.getQuery(TeamMoment.class);
         query.whereEqualTo("createdAt", date);
         query.findInBackground(callback);
     }
@@ -45,6 +45,7 @@ public class TeamMomentDao extends BaseDao {
      * @return 对应日期的球队风采
      */
     public static List<TeamMoment> findByDate(Date date) {
+        query = AVQuery.getQuery(TeamMoment.class);
         query.whereEqualTo("createdAt", date);
         try {
             return query.find();

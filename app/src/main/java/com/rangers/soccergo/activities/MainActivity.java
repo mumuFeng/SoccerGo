@@ -1,6 +1,5 @@
 package com.rangers.soccergo.activities;
 
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.widget.FrameLayout;
@@ -9,7 +8,6 @@ import android.widget.RelativeLayout;
 import com.rangers.soccergo.R;
 import com.rangers.soccergo.fragments.FooterFragment;
 import com.rangers.soccergo.fragments.HeaderFragment;
-import com.rangers.soccergo.fragments.IndividualListFragment;
 
 /**
  * MainActivity
@@ -20,9 +18,6 @@ import com.rangers.soccergo.fragments.IndividualListFragment;
  * Created by: Wooxxx
  */
 public class MainActivity extends BaseActivity {
-    //默认显示的activity
-    private static final Fragment DEFAULT_FRAGMENT
-            = new IndividualListFragment();
 
     // 所容纳的三个Fragment
     private HeaderFragment header;
@@ -34,9 +29,6 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // 显示默认fragment
-        getFragmentManager().beginTransaction()
-                .replace(R.id.main_fragment, DEFAULT_FRAGMENT).commit();
         FragmentManager fm =
                 getFragmentManager();
         header = (HeaderFragment) fm.findFragmentById(R.id.header);

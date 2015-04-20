@@ -18,8 +18,7 @@ import java.util.List;
  */
 public class MatchDao extends BaseDao {
 
-    private static AVQuery<Match> query =
-            new AVQuery<Match>(Match.CLASS_NAME);
+    private static AVQuery<Match> query;
 
     @Override
     public String getClassName() {
@@ -34,6 +33,7 @@ public class MatchDao extends BaseDao {
      */
     public void findByBeginTime(Date beginTime,
                                 final FindCallback<Match> callback) {
+        query = AVQuery.getQuery(Match.class);
         query.whereEqualTo(Match.BEGIN_TIME_KEY, beginTime);
         query.findInBackground(callback);
     }
@@ -45,6 +45,7 @@ public class MatchDao extends BaseDao {
      * @return 比赛列表
      */
     public static List<Match> findByBeginTime(Date beginTime) {
+        query = AVQuery.getQuery(Match.class);
         query.whereEqualTo(Match.BEGIN_TIME_KEY, beginTime);
         try {
             return query.find();
