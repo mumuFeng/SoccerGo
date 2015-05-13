@@ -3,5 +3,46 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <Button
+        android:id="@+id/bt"
+        android:text="123123"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+    </Button>
+    <RelativeLayout
+        android:background="#FFFFFF"
+        android:layout_width="fill_parent"
+        android:layout_height="36dip"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+        <Button
+            android:id="@+id/top_btn_right"
+            android:text="button"
+            android:background="#ff6edd65"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12.0dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+        <TextView
+            android:gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="会话  "
+            android:textSize="16sp"
+            android:ellipsize="middle"
+            android:layout_centerInParent="true"
+            android:layout_alignWithParentIfMissing="true" />
+    </RelativeLayout>
 
+    <ListView
+        android:id="@+id/chat_list"
+        android:layout_width="fill_parent"
+        android:paddingTop="10dip"
+        android:paddingBottom="0dip"
+        android:cacheColorHint="#00000000"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:clipToPadding="false"
+        android:layout_height="wrap_content"/>
+        <!--android:divider="@drawable/list_divider" -->
 </LinearLayout>
