@@ -1,9 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">SoccerGo</string>
-    <!-- 公司信息-->
+    <!-- 公司信息 -->
     <string name="company">XXX公司</string>
     <string name="copyright">Copyright © 2015 xxxx. All Rights Reserved</string>
-    <!--默认-->
+    <!-- 默认 -->
     <string name="login">登录</string>
     <string name="register">注册</string>
     <string name="settings">设置</string>
@@ -11,7 +13,7 @@
     <string name="year">年</string>
     <string name="month">月</string>
     <string name="day">日</string>
-    <!--登陆部分-->
+    <!-- 登陆部分 -->
     <string name="login_divide_tip">第三方登录</string>
     <string name="login_hint_phone">请输入手机号</string>
     <string name="login_to_reg">注册账号</string>
@@ -25,7 +27,7 @@
     <string name="app_weibo_login">微博登录</string>
     <string name="app_qq_login">QQ登录</string>
     <string name="other_login">其他方式登录</string>
-    <!--  注册部分 -->
+    <!-- 注册部分 -->
     <string name="register_hint_auth_code">请填写验证码</string>
     <string name="register_to_login">已有账号?</string>
     <string name="register_phone_error">手机格式不正确</string>
@@ -37,8 +39,11 @@
     <string name="register_pwd_hint">密码最少长6位，由数字或字符组成</string>
     <string name="register_pwd_error">密码格式错误</string>
     <string name="register_pwd_mismatch">两次输入密码不一致</string>
-    <!--Sliding 菜单项-->
+    <!-- Sliding 菜单项 -->
     <string name="sliding_list_settings">应用设置</string>
     <string name="sliding_list_advice">建议反馈</string>
+    <string name="title_activity_chat">ChatActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

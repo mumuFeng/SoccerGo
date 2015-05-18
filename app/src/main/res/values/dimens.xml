@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <dimen name="mini_dist">5dp</dimen>
     <dimen name="small_dist">15dp</dimen>
     <dimen name="middle_dist">30dp</dimen>
     <dimen name="large_dist">50dp</dimen>
 
-    <!-- SlidingMenu-->
+    <!-- SlidingMenu -->
     <dimen name="sliding_behindOffset">60dp</dimen>
     <dimen name="sliding_padding">20dp</dimen>
     <dimen name="sliding_paddingTop">40dp</dimen>
@@ -26,4 +27,7 @@
     <!-- Footer -->
     <dimen name="footer_icon_size">45dp</dimen>
     <dimen name="footer_icon_padding">5dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
 </resources>

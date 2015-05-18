@@ -11,7 +11,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.rangers.soccergo.R;
-import com.rangers.soccergo.entities.MessageShow;
+import com.rangers.soccergo.entities.MessageItem;
 import com.rangers.soccergo.uis.MessageListAdapter;
 
 import java.util.ArrayList;
@@ -28,10 +28,10 @@ import java.util.List;
  */
 public class MessageListFragment extends BaseFragment {
     ListView listView;  //会话列表listview
-    List<MessageShow> MessageList= new ArrayList<MessageShow>();   //会话实体类list
-    MessageShow ms1 = new MessageShow(1,"mumu","hello","12:22",true);
-    MessageShow ms2 = new MessageShow(2,"messi","hi","9:55",true);
-    MessageShow ms3 = new MessageShow(0,"kobe","你好","23:55",true);
+    List<MessageItem> MessageList= new ArrayList<MessageItem>();        //会话实体类list
+    MessageItem ms1 = new MessageItem(1,"mumu","hello","12:22",true);   //测试数据
+    MessageItem ms2 = new MessageItem(2,"messi","hi","9:55",true);      //测试数据
+    MessageItem ms3 = new MessageItem(0,"kobe","你好","23:55",true);     //测试数据
     String[] mes;
     @Nullable
     @Override
@@ -42,9 +42,11 @@ public class MessageListFragment extends BaseFragment {
                 container,
                 false
         );
-        MessageList.add(ms1);
-        MessageList.add(ms2);
-        MessageList.add(ms3);
+        MessageList.add(ms1);//测试数据
+        MessageList.add(ms2);//测试数据
+        MessageList.add(ms3);//测试数据
+        onloadlist();//加载会话列表
+
         Toast.makeText(getActivity(),"fragment初始化",Toast.LENGTH_SHORT).show();
         return super.onCreateView(inflater, container, savedInstanceState);
     }
@@ -55,7 +57,7 @@ public class MessageListFragment extends BaseFragment {
         Iterator it=MessageList.iterator();
         /*if(MessageList!=null && MessageList.size()!=0){
             while(it.hasNext()){
-                MessageShow re=(MessageShow) it.next();
+                MessageItem re=(MessageItem) it.next();
                 if(re.getAccount()==Integer.parseInt(mes[0])){
                     MessageList.remove(re);
                 }
@@ -71,12 +73,22 @@ public class MessageListFragment extends BaseFragment {
                                     long arg3) {
                 //打开聊天页面
                 Toast.makeText(getActivity(),"创建成功",Toast.LENGTH_SHORT).show();
-                /*Intent intent=new Intent(RecentActivity.this,ChatActivity.class);
-                intent.putExtra("account", Integer.parseInt(mes[0]));
-                intent.putExtra("nick", "");
-                startActivity(intent);*/
+                gochating();//准备进入聊天界面
+
             }
         });
         super.onActivityCreated(savedInstanceState);
+    }
+
+    private void gochating() {
+        //进入聊天界面
+        /*Intent intent=new Intent(getActivity(),ChatActivity.class);
+        intent.putExtra("converstationId", Integer.parseInt(mes[0]));
+        intent.putExtra("nick", "");
+        startActivity(intent);*/
+    }
+
+    private void onloadlist() {
+        //加载会话列表
     }
 }

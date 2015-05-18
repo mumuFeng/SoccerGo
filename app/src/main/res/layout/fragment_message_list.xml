@@ -3,12 +3,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <Button
-        android:id="@+id/bt"
-        android:text="123123"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-    </Button>
     <RelativeLayout
         android:background="#FFFFFF"
         android:layout_width="fill_parent"
@@ -43,6 +37,7 @@
         android:fadingEdge="none"
         android:fastScrollEnabled="false"
         android:clipToPadding="false"
+        android:minHeight="100px"
         android:layout_height="wrap_content"/>
         <!--android:divider="@drawable/list_divider" -->
 </LinearLayout>
