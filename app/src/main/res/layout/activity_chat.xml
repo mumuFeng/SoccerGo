@@ -4,44 +4,50 @@
                 android:layout_height="match_parent"
                 tools:context="com.rangers.soccergo.activities.ChatActivity">
 
-
-     <LinearLayout
+    <LinearLayout
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_width="0px"
+        android:layout_height="0px"/>
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="44dip"
             android:id="@+id/chat_title"
-            android:background="#ffff6116"
+            android:background="#ff3fc7ff"
             android:layout_alignParentTop="true">
             <!--android:background="@drawable/chat_title_layer">-->
 
             <Button
-                android:id="@+id/chat_msg_button"
+                android:id="@+id/chat_back_button"
                 android:layout_width="match_parent"
                 android:layout_height="36dip"
                 android:layout_weight="1.9"
                 android:layout_marginLeft="8dip"
                 android:layout_marginTop="3dip"
-                android:text="消息(0)"
+                android:text="&lt;- 返回"
                 android:textColor="@android:color/white"
-                android:textSize="7pt"
-                android:background="#ff7f63ff"/>
+                android:textSize="9pt"
+                android:background="@android:color/transparent"/>
             <TextView
                 android:id="@+id/chat_contact_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="mumu（备注：哥哥）"
+                android:text="对方姓名（备注）"
                 android:textSize="8pt"
                 android:textColor="@android:color/white"
                 android:gravity="center"
                 android:layout_gravity="center_vertical"/>
             <ImageButton
-                android:id="@+id/chat_contact_button"
+                android:id="@+id/chat_userInfo_button"
                 android:layout_width="match_parent"
                 android:layout_height="36dip"
                 android:layout_weight="2"
                 android:layout_marginRight="8dip"
                 android:layout_marginTop="3dip"
-                android:background="#ff6d8cff"/>
+                android:src="@drawable/chat_userinfo"
+                android:backgroundTint="@android:color/transparent"
+                android:background="@android:color/transparent"/>
 
      </LinearLayout>
 
@@ -49,13 +55,13 @@
             android:id="@+id/chat_bottom_linear"
             android:layout_width="match_parent"
             android:layout_height="42dip"
-            android:background="#ffff886a"
+            android:background="#ff3fc7ff"
             android:orientation="horizontal"
             android:layout_alignParentBottom="true"
             android:paddingTop="7dip"
             android:paddingBottom="3dip">
 
-            <ImageButton
+            <!--<ImageButton
                 android:id="@+id/chat_bottom_look"
                 android:layout_width="match_parent"
                 android:layout_height="26dip"
@@ -70,13 +76,13 @@
                 android:layout_weight="3.5"
                 android:layout_marginLeft="7dip"
                 android:layout_marginTop="3dip"
-                android:background="#ff91eeff"/>
+                android:background="#ff91eeff"/>-->
             <EditText
                 android:id="@+id/chat_bottom_edittext"
                 android:layout_width="match_parent"
                 android:layout_height="32dip"
-                android:layout_marginLeft="5dip"
-                android:layout_marginRight="7dip"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1.5"
                 android:background="#FFFFFF"/>
             <Button
@@ -102,6 +108,7 @@
             android:fadingEdge="none"
             android:background="#f0f0f0"
             android:divider="#aaaaaa"
+            android:transcriptMode="alwaysScroll"
             android:dividerHeight="0px">
         </ListView>
 

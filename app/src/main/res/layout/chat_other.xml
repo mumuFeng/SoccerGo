@@ -20,13 +20,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/chatlist_image_other"
-        android:layout_alignTop="@id/chatlist_image_other"
+        android:layout_alignBottom="@id/chatlist_image_other"
         android:text="这是我接收到的数据"
-        android:background="#ff70ff7b"
-        android:paddingTop="13dip"
-        android:paddingBottom="18dip"      />
-
-
+        android:background="@drawable/chatbg"
+        />
 
 
 </RelativeLayout>

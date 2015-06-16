@@ -1,13 +1,17 @@
 package com.rangers.soccergo.activities;
 
 import android.app.FragmentManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
+import com.avos.avoscloud.im.v2.AVIMMessageManager;
 import com.rangers.soccergo.R;
 import com.rangers.soccergo.fragments.FooterFragment;
 import com.rangers.soccergo.fragments.HeaderFragment;
+import com.rangers.soccergo.helpers.ChatConversationHelper;
+import com.rangers.soccergo.uis.MessageHandler;
 
 /**
  * MainActivity
@@ -34,6 +38,10 @@ public class MainActivity extends BaseActivity {
         header = (HeaderFragment) fm.findFragmentById(R.id.header);
         footer = (FooterFragment) fm.findFragmentById(R.id.footer);
         mainContainer = (FrameLayout) findViewById(R.id.main_fragment);
+        AVIMMessageManager.registerDefaultMessageHandler(new MessageHandler());
+        Context context = this;
+        ChatConversationHelper.open(ChatConversationHelper.USERID,context);
+
     }
 
 

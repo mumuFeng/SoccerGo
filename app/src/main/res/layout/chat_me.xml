@@ -20,11 +20,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/chatlist_image_me"
-        android:layout_alignTop="@id/chatlist_image_me"
+        android:layout_alignBottom="@id/chatlist_image_me"
         android:text="这是我发送的消息的地方"
-        android:background="#FFFFFF"
-        android:paddingTop="13dip"
-        android:paddingBottom="18dip"      />
+        android:background="@drawable/chatbg"
+        />
 
 
 

@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.avos.avoscloud.AVOSCloud;
 import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.im.v2.AVIMMessageManager;
 import com.rangers.soccergo.entities.Elephant;
 import com.rangers.soccergo.entities.Fruit;
 import com.rangers.soccergo.entities.JoinMatch;
@@ -12,6 +13,7 @@ import com.rangers.soccergo.entities.Match;
 import com.rangers.soccergo.entities.School;
 import com.rangers.soccergo.entities.Team;
 import com.rangers.soccergo.entities.TeamMoment;
+import com.rangers.soccergo.uis.MessageHandler;
 
 /**
  * LeanCloudHelper
@@ -27,6 +29,7 @@ public class LeanCloudHelper {
     private static final String APP_ID = "z9d925kj7ws3ypepkr1cqa42h00iw22spmc8lik28w7cokx5";
     private static final String APP_KEY = "o6ltk67iv7cxqntxf6xpp91jgjj60qpgxl7qushxl1lxxst3";
 
+
     /**
      * 初始化Leancloud
      *
@@ -36,6 +39,7 @@ public class LeanCloudHelper {
         //注册子类
         registerSubclass();
         AVOSCloud.initialize(ctx, APP_ID, APP_KEY);
+
         AVOSCloud.setDebugLogEnabled(true);
     }
 
